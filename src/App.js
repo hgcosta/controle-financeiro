@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "./components/form";
 import Header from "./components/header";
 import Resume from "./components/resume";
 import GlobalStyle from "./styles/global";
@@ -10,6 +11,7 @@ const App = ()=>{
      <>
         <Header/>
         <Resume/>
+        <Form />
         <GlobalStyle/>
      </>
     
