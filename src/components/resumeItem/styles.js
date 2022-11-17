@@ -30,7 +30,7 @@ export const Header = styled.header`
     justify-content:space-around;
     width:100%;
     gap:10px;
-
+    margin:20px;
     svg{
 
         width:25px;
@@ -46,3 +46,5 @@ export const Total = styled.span`
     font-size:30px;
     font-weight:bold;
 `;
+
+
