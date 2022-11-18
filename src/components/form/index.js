@@ -3,11 +3,14 @@ import * as C from "./styles";
 
 
 
-const Form = () => {
+const Form = ({handleAdd}) => {
 
     const [desc, setDesc]= useState("");
     const [amount, setAmount] = useState("");
     const [isExpense, setExpense] = useState(false);
+
+
+    const generateID = ()=> Math.round(Math.random()*1000);
 
     const handleSave = () =>{
         if(!desc || !amount){
@@ -16,9 +19,26 @@ const Form = () => {
         }else if (amount < 1){
             alert("O valor precisa ser positivo")
             return;
-        }
+        };
+
+        const transaction = {
+            id: generateID(),
+            desc:desc,
+            amount:amount,
+            expense: isExpense,
+        };
+        handleAdd(transaction);
+
+
+        setDesc("");
+        setAmount("")
     }
 
+   
+
+    
+
+  
 
   return (
     <C.Container>
@@ -38,7 +58,7 @@ const Form = () => {
             <C.Input type="radio" id="irExpenses" name="group1" onChange={()=> setExpense(!isExpense)} />
             <C.Label HtmlFor="irExpenses">Saída</C.Label>
         </C.RadioGroup>
-        <C.Button>Adicionar</C.Button>
+        <C.Button onClick={handleSave}>Adicionar</C.Button>
     </C.Container>    
   )
 }
